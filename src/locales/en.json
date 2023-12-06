@@ -1,0 +1,16 @@
+{
+  "start": {
+    "text": "Assistant will help you process this task.",
+    "proceedButton": "Let's go!"
+  },
+  "success": {
+    "subtitle": "Task processed successfully",
+    "text": "The request has been processed successfully. You can now dismiss Assistant and work on a new task.",
+    "successButton": "Thank you"
+  },
+  "failure": {
+    "subtitle": "Oops. Something went wrong",
+    "text": "Assistant has encountered unexpected circumstances, and is unable to proceed. The following error message will help support investigate the issue: {{err}}",
+    "dismissButton": "Dismiss"
+  }
+}

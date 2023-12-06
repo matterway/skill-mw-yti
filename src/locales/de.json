@@ -1,0 +1,16 @@
+{
+  "start": {
+    "text": "Der Assistent wird ihnen helfen, diese Aufgabe zu bearbeiten.",
+    "proceedButton": "Los geht's!"
+  },
+  "success": {
+    "subtitle": "Die Aufgabe wurde erfolgreich bearbeitet",
+    "text": "Die Aufgabe wurde erfolgreich bearbeitet. Sie können den Assistenten jetzt beenden und an einer neuen Aufgabe arbeiten.",
+    "successButton": "Danke"
+  },
+  "failure": {
+    "subtitle": "Oops. Etwas ist schief gelaufen.",
+    "text": "Der Assistent ist auf unerwartete Umstände gestoßen und kann daher nicht fortfahren. Die folgende Fehlermeldung könnte dabei helfen, das Problem zu untersuchen: {{err}}",
+    "dismissButton": "Beenden"
+  }
+}

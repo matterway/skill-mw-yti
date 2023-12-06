@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "identifier": "@acme/skill-template",
+  "name": "My Skill",
+  "description": "Description of My Skill.",
+  "name_de": "New skill German name",
+  "description_de": "New skill German description",
+  "name_fr": "New skill French name",
+  "description_fr": "New skill French description",
+  "name_nl": "New skill Dutch name",
+  "description_nl": "New skill Dutch description",
+  "icon": "icon.png",
+  "background_script": "background.js",
+  "content_script": "content.js",
+  "matcher_script": "matcher.js"
+}
