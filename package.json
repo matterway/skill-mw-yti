@@ -3,20 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@matterway/assistant-design-system": "^6.6.0",
-    "@matterway/background-react": "^6.0.0",
-    "@matterway/connection-manager": "^2.21.0",
-    "@matterway/sdk": "^0.33.0",
-    "@matterway/skill-scripts": "^2.21.0",
-    "@matterway/types": "^0.69.0",
-    "@matterway/utils-skills": "^0.59.0",
+    "@matterway/background-react": "^10.0.0",
+    "@matterway/connection-manager": "^10.0.0",
+    "@matterway/sdk": "^0.40.0",
+    "@matterway/skill-scripts": "^10.0.0",
+    "@matterway/types": "^10.0.0",
+    "@matterway/utils-skills": "^10.0.0",
     "i18next": "^22.4.15",
     "lodash": "^4.17.21",
     "puppeteer-core": "^21.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-i18next": "^12.2.2",
-    "styled-components": "^5.3.1"
+    "styled-components": "^6.0.0"
   },
   "scripts": {
     "start": "skill-scripts start",
@@ -28,6 +27,7 @@
     "list-unused-packages": "depcheck --skip-missing=true"
   },
   "devDependencies": {
+    "@matterway/eslint-plugin": "^1.0.0",
     "@types/lodash": "^4.14.175",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.24",
