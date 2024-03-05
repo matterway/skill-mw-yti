@@ -1,0 +1,37 @@
+name: Check Unused Dependencies
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check-unused-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup npm registry
+        uses: ./.github/actions/npm-registry-setup
+        with:
+          token: ${{ secrets.PRIVATE_PACKAGE_REGISTRY_TOKEN }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check for unused dependencies
+        id: unused_deps
+        uses: ./.github/actions/unused-dep-check
+
+      - name: Comment on PR
+        if: steps.unused_deps.outputs.unusedDependencies != ''
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+          message: ${{ steps.unused_deps.outputs.unusedDependencies }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
