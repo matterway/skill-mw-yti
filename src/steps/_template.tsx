@@ -3,7 +3,6 @@ import {
   getContentComponentsProxy,
 } from '@matterway/background-react';
 import type {Context} from '@matterway/sdk';
-import {successStep} from 'steps/@success';
 
 const {
   // Import your components here
@@ -18,6 +17,9 @@ export async function someNextActionStep(
   console.log('step: someNextActionStep', data);
   const {browser, page, render} = ctx;
 
-  // Change this to point to your next step
-  return await successStep(ctx);
+  // Add your automation here
+  const result = {};
+
+  console.log('step: someNextActionStep end', result);
+  return result;
 }
