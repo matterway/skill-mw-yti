@@ -1,4 +1,4 @@
-import {Context} from '@matterway/sdk';
+import {initTheme, type Context} from '@matterway/sdk';
 import {initI18n} from 'locales';
 import {failureStep} from 'steps/@failure';
 import {startStep} from 'steps/@start';
@@ -6,7 +6,7 @@ import {startStep} from 'steps/@start';
 export default async function (ctx: Context) {
   console.clear();
   initI18n(ctx.languageCode);
-
+  const themeWatcher = await initTheme(ctx);
   try {
     await startStep(ctx);
   } catch (err) {
@@ -15,5 +15,7 @@ export default async function (ctx: Context) {
     await failureStep(ctx, err as Error);
 
     throw err;
+  } finally {
+    await themeWatcher.stop();
   }
 }
