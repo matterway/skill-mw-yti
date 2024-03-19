@@ -24,15 +24,19 @@ depcheck(path, options, (unused) => {
     .map((dep) => `- \`${dep}\``)
     .join('\n');
 
-  const content = `
-## 👻 Unused dependencies found
-
-**:rotating_light:  Dependencies:** 
-${dependencies}
-
-**:warning:  Dev Dependencies:**
-${devDependencies}
-`;
+  const contentParts = [];
+  if (dependencies || devDependencies) {
+    contentParts.push('## 👻 Unused dependencies found');
+  }
+  if (dependencies) {
+    contentParts.push('**:rotating_light: Dependencies:**');
+    contentParts.push(dependencies);
+  }
+  if (devDependencies) {
+    contentParts.push('**:warning: Dev Dependencies:**');
+    contentParts.push(devDependencies);
+  }
+  const content = contentParts.join('\n\n');
 
   core.info(content.trim());
   core.setOutput('unusedDependencies', content.trim());
