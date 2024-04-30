@@ -4,11 +4,9 @@
   "private": true,
   "dependencies": {
     "@matterway/background-react": "^10.0.0",
-    "@matterway/connection-manager": "^10.0.0",
-    "@matterway/sdk": "^0.48.0",
-    "@matterway/skill-scripts": "^10.0.0",
+    "@matterway/sdk": "^0.53.3",
+    "@matterway/skill-scripts": "^10.0.6-stable",
     "@matterway/types": "^10.0.0",
-    "@matterway/utils-skills": "^10.0.0",
     "i18next": "^22.4.15",
     "puppeteer-core": "^21.0.0",
     "react": "^18.2.0",
@@ -17,8 +15,8 @@
     "styled-components": "^6.0.0"
   },
   "scripts": {
-    "start": "skill-scripts start",
-    "build": "skill-scripts build",
+    "start": "skill-scripts start --mode=development",
+    "build": "skill-scripts build --mode=production",
     "build:dev": "skill-scripts build --mode=development",
     "lint": "eslint '**/*.{ts,tsx}'",
     "format": "prettier . --write",
