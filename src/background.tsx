@@ -6,7 +6,7 @@ import {startStep} from 'steps/@start';
 export default async function (ctx: Context) {
   console.clear();
   initI18n(ctx.languageCode);
-  const themeWatcher = await initTheme(ctx);
+  void initTheme(ctx);
   try {
     await startStep(ctx);
   } catch (err) {
@@ -15,7 +15,5 @@ export default async function (ctx: Context) {
     await failureStep(ctx, err as Error);
 
     throw err;
-  } finally {
-    await themeWatcher.stop();
   }
 }

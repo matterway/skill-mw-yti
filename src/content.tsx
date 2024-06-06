@@ -21,43 +21,15 @@ const reactMountRoot = createSkillMountRoot({
 });
 
 const root = createRoot(reactMountRoot);
-const renderApp = () => {
-  root.render(
-    <ThemeContextProvider>
-      <DesignSystemRoot styleSheetTarget={reactMountRoot}>
-        <BackgroundContent
-          contentComponents={contentComponents}
-          onInitialLanguageCodeReceived={(languageCode) => {
-            initI18n(languageCode);
-          }}
-        />
-      </DesignSystemRoot>
-    </ThemeContextProvider>,
-  );
-};
-
-const waitForTheme = async () => {
-  const timeoutPromise = new Promise((_resolve, reject) => {
-    setTimeout(() => {
-      reject(new Error('MW_THEME not found'));
-    }, 2000);
-  });
-
-  const themePromise = new Promise((resolve) => {
-    const interval = setInterval(() => {
-      if ((window as any).MW_THEME) {
-        clearInterval(interval);
-        resolve((window as any).MW_THEME);
-      }
-    }, 10);
-  });
-
-  try {
-    await Promise.race([timeoutPromise, themePromise]);
-  } catch (error) {
-    console.log(error);
-  }
-  renderApp();
-};
-
-void waitForTheme();
+root.render(
+  <ThemeContextProvider>
+    <DesignSystemRoot styleSheetTarget={reactMountRoot}>
+      <BackgroundContent
+        contentComponents={contentComponents}
+        onInitialLanguageCodeReceived={(languageCode) => {
+          initI18n(languageCode);
+        }}
+      />
+    </DesignSystemRoot>
+  </ThemeContextProvider>,
+);
