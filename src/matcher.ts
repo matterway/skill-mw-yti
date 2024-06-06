@@ -1,10 +1,10 @@
-import {MatcherResult, SkillEnv} from '@matterway/types';
+import {MatcherResult} from '@matterway/types';
 import manifest from './manifest.json';
 
-export default function matcher(
-  window: Window,
-  skillEnv: SkillEnv,
-): MatcherResult {
+const selectors = {
+  rowsCheckboxes: 'input[class="listViewEntriesCheckBox"] ',
+};
+export default function matcher(window: Window): MatcherResult {
   const forceSkillMatch =
     window.location.hash === `#mw-force-skill-match-${manifest.identifier}`;
 
@@ -19,11 +19,11 @@ export default function matcher(
     return true;
   }
 
-  const triggerUrl = 'example.com';
-
-  const matcherResult =
-    window.location.href.includes(triggerUrl) && skillEnv.tag === 'local';
-  console.debug(`${manifest.name} matcher result:`, matcherResult);
+  const matcherResult = Array.from(
+    document.querySelectorAll(selectors.rowsCheckboxes),
+  ).some((checkbox) => {
+    return (checkbox as HTMLInputElement).checked === true;
+  });
 
   return matcherResult;
 }
