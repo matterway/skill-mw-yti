@@ -6,6 +6,7 @@ import {
   waitForSelector,
 } from '@matterway/sdk';
 import {t} from 'i18next';
+import {commentRegex, serviceRegex, servicesData} from 'shared/constants';
 import {SELECTORS} from 'shared/selectors';
 import {PartnerData} from 'shared/types';
 
@@ -38,7 +39,10 @@ export async function gatherPartnerDataStep(ctx: Context) {
   const contactPersonPhone = (
     await getValue(ctx, SELECTORS.contactPersonPhone)
   )?.trim() as string;
-  const comments = (await getValue(ctx, SELECTORS.comments))?.trim() as string;
+  const commentsText = (
+    await getValue(ctx, SELECTORS.comments)
+  )?.trim() as string;
+  const comments = commentsText.match(commentRegex) as string[];
 
   await click(ctx, SELECTORS.detailsTab);
 
@@ -58,6 +62,41 @@ export async function gatherPartnerDataStep(ctx: Context) {
     await getValue(ctx, SELECTORS.postalCode)
   )?.trim() as string;
 
+  const services = comments.map((service) => {
+    const match = service.match(serviceRegex) as string[];
+
+    const description = match[1];
+    const totalDays = match[2];
+    const discount = match[3] || '0';
+
+    const id = servicesData[description as keyof typeof servicesData].id;
+    const dailyRate =
+      servicesData[description as keyof typeof servicesData].dailyRate;
+    const lineTotal = discount
+      ? (
+          Number(totalDays) *
+          Number(dailyRate.replace(',', '.')) *
+          (1 - Number(discount.replace(',', '.')) / 100)
+        ).toFixed(2)
+      : (Number(totalDays) * Number(dailyRate.replace(',', '.'))).toFixed(2);
+    return {
+      id,
+      description,
+      totalDays,
+      discount,
+      dailyRate,
+      lineTotal,
+    };
+  });
+  const totalDiscount = services.reduce((acc, service) => {
+    return acc + Number(service.discount.replace(',', ''));
+  }, 0);
+  const subTotal = services.reduce((acc, service) => {
+    return acc + Number(service.lineTotal);
+  }, 0);
+
+  const total = subTotal * (1 - totalDiscount / 100);
+
   const partnerData: PartnerData = {
     companyName,
     primaryEmail,
@@ -66,13 +105,16 @@ export async function gatherPartnerDataStep(ctx: Context) {
     contactPersonLastName,
     contactPersonEmail,
     contactPersonPhone,
-    comments,
+    services,
     streetAddress,
     officeNumber,
     buildingNumber,
     city,
     country,
     postalCode,
+    totalDiscount,
+    subTotal,
+    total,
   };
 
   console.log('step: gatherPartnerDataStep end', partnerData);

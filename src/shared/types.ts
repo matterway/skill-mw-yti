@@ -14,11 +14,22 @@ export interface PartnerData {
   contactPersonLastName: string;
   contactPersonEmail: string;
   contactPersonPhone: string;
-  comments: string;
+  services: Services[];
   streetAddress: string;
   officeNumber: string;
   buildingNumber: string;
   city: string;
   country: string;
   postalCode: string;
+  totalDiscount: number;
+  subTotal: number;
+  total: number;
+}
+export interface Services {
+  id: number;
+  description: string;
+  totalDays: string;
+  discount: string;
+  dailyRate: string;
+  lineTotal: string;
 }

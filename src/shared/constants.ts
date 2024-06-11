@@ -1,7 +1,46 @@
 // Keep shared constants here
+export const commentRegex = /(Service \d+ \(\d+ days(?:, \d+% discount)?\))/g;
 
-/**
- * @example
- * export const MY_SITE_URL = 'https://example.org';
- */
-export {};
+export const serviceRegex = /^(.*?) \((\d+) days(?:, (\d+)% discount)?\)$/;
+
+export const servicesData = {
+  'Service 1': {id: 2452, dailyRate: '200,75'},
+  'Service 2': {id: 6235, dailyRate: '300,24'},
+  'Service 3': {id: 425, dailyRate: '500,75'},
+  'Service 4': {id: 426, dailyRate: '633,91'},
+  'Service 5': {id: 427, dailyRate: '783,91'},
+  'Service 6': {id: 428, dailyRate: '933,91'},
+  'Service 7': {id: 429, dailyRate: '200,75'},
+  'Service 8': {id: 430, dailyRate: '300,24'},
+  'Service 9': {id: 431, dailyRate: '500,75'},
+  'Service 10': {id: 432, dailyRate: '633,91'},
+  'Service 11': {id: 433, dailyRate: '783,91'},
+  'Service 12': {id: 434, dailyRate: '933,91'},
+  'Service 13': {id: 435, dailyRate: '1.983,91'},
+  'Service 14': {id: 436, dailyRate: '200,75'},
+  'Service 15': {id: 437, dailyRate: '300,24'},
+  'Service 16': {id: 438, dailyRate: '500,75'},
+  'Service 17': {id: 439, dailyRate: '633,91'},
+  'Service 18': {id: 440, dailyRate: '783,91'},
+  'Service 19': {id: 441, dailyRate: '933,91'},
+  'Service 20': {id: 442, dailyRate: '3.033,91'},
+  'Service 21': {id: 443, dailyRate: '3.183,91'},
+  'Service 22': {id: 444, dailyRate: '3.333,91'},
+  'Service 23': {id: 445, dailyRate: '3.483,91'},
+  'Service 24': {id: 446, dailyRate: '200,75'},
+  'Service 25': {id: 447, dailyRate: '300,24'},
+  'Service 26': {id: 448, dailyRate: '500,75'},
+  'Service 27': {id: 449, dailyRate: '633,91'},
+  'Service 28': {id: 450, dailyRate: '783,91'},
+  'Service 29': {id: 451, dailyRate: '933,91'},
+  'Service 30': {id: 452, dailyRate: '4.533,91'},
+  'Service 31': {id: 453, dailyRate: '4.683,91'},
+  'Service 32': {id: 454, dailyRate: '4.833,91'},
+  'Service 33': {id: 455, dailyRate: '4.983,91'},
+  'Service 34': {id: 456, dailyRate: '200,75'},
+  'Service 35': {id: 457, dailyRate: '300,24'},
+  'Service 36': {id: 458, dailyRate: '500,75'},
+  'Service 37': {id: 459, dailyRate: '633,91'},
+  'Service 38': {id: 460, dailyRate: '783,91'},
+  'Service 39': {id: 461, dailyRate: '933,91'},
+};
