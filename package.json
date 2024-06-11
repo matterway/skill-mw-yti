@@ -8,6 +8,7 @@
     "@matterway/skill-scripts": "^10.0.6-stable",
     "@matterway/types": "^10.0.0",
     "i18next": "^22.4.15",
+    "pdf-lib": "^1.17.1",
     "puppeteer-core": "^21.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
