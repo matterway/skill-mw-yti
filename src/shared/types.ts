@@ -33,3 +33,8 @@ export interface Services {
   dailyRate: string;
   lineTotal: string;
 }
+
+export interface ServiceFormResult {
+  button: string;
+  data: {[key: string]: string};
+}

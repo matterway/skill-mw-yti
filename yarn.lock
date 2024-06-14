@@ -1285,10 +1285,10 @@
     "@matterway/utils-node" "^10.0.1"
     eventemitter3 "^4.0.7"
 
-"@matterway/sdk@^0.65.5":
-  version "0.65.5"
-  resolved "https://registry.matterway.io/@matterway%2fsdk/-/sdk-0.65.5.tgz#48902a11cc1518435269b8e438350662b35c0ef9"
-  integrity sha512-XQFJ6hzGH+6RHGbH08e42x3248ktuZAENNTMu6xUE970eTPSPnJlTaGkpXSVuILZ3LQ1V+3HOA1w6I4XxwA2cQ==
+"@matterway/sdk@^0.69.4":
+  version "0.69.4"
+  resolved "https://registry.matterway.io/@matterway%2fsdk/-/sdk-0.69.4.tgz#ca22cc107998905feb7b8e062c5daf47a044f663"
+  integrity sha512-uLp2lh02sJkUa+8T+5DU8lvVegMSEwBUVadSLusGEs8hmsRQsnrKEcaSFV7Qipg3wVozMOghkhgv1SEeQ8sw3w==
   dependencies:
     "@hookform/resolvers" "^3.3.1"
     "@matterway/utils-skills" "^0.32.2"
