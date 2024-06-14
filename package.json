@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@matterway/background-react": "^10.0.0",
-    "@matterway/sdk": "^0.65.5",
+    "@matterway/sdk": "^0.69.4",
     "@matterway/skill-scripts": "^10.0.6-stable",
     "@matterway/types": "^10.0.0",
     "i18next": "^22.4.15",

@@ -5,7 +5,8 @@
   },
   "success": {
     "subtitle": "Task processed successfully",
-    "text": "The request has been processed successfully. You can now dismiss Assistant and work on a new task.",
+    "text1": "The invoice for {{companyName}} Ltd. has been created.",
+    "text2": "The invoice has been saved in your Downloads folder.",
     "successButton": "Thank you"
   },
   "failure": {
@@ -15,5 +16,11 @@
   },
   "loader": {
     "text": "Fetching Data..."
+  },
+  "form": {
+    "title": "Check invoice for {{companyName}}",
+    "description": "The Assistant has created the invoice with information from Partners in Yetiforce",
+    "infoText": "Check and edit the values, if required.\n Daily rates of services can be found ",
+    "linkText": "here"
   }
 }

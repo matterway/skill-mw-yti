@@ -6,3 +6,4 @@ export * from '@matterway/sdk/lib/progress/components';
 export * from '@matterway/sdk/lib/form/components';
 export * from '@matterway/sdk/lib/notice/components';
 export * from '@matterway/sdk/lib/file/components';
+export {LinkCallout} from './LinkCallout';
