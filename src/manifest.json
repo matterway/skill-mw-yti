@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "identifier": "@matterway/yti",
+  "identifier": "@onboarding/yti",
   "name": "Create invoice",
   "description": "Generate a PDF invoice for your desired customer.",
   "name_de": "Create invoice",
