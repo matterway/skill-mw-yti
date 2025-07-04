@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@matterway/background-react": "^10.0.0",
-    "@matterway/connection-manager": "^10.153.2",
+    "@matterway/background-react": "^10.286.0",
+    "@matterway/connection-manager": "^10.286.0",
     "@matterway/puppeteer-proxy": "^10.153.2",
     "@matterway/sdk": "^1.1.8",
     "@matterway/skill-scripts": "^10.0.11",
