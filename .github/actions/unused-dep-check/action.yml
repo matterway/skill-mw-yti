@@ -1,9 +1,0 @@
-name: 'Unused dependencies check'
-description: 'Check for unused dependencies'
-inputs: {}
-outputs:
-  unusedDependencies:
-    description: 'Markdown formatted list of unused dependencies'
-runs:
-  using: 'node20'
-  main: 'index.js'
