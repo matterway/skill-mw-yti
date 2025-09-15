@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@matterway/sdk": "^1.31.4",
+    "@matterway/sdk": "^1.56.2",
     "@matterway/skill-scripts": "^11.102.6",
     "i18next": "^22.4.15",
     "pdf-lib": "^1.17.1",
@@ -44,6 +44,7 @@
     "typescript": "^4.8.4"
   },
   "resolutions": {
-    "pbkdf2": "^3.1.3"
+    "pbkdf2": "^3.1.3",
+    "jsondiffpatch": "^0.7.2"
   }
 }
