@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@matterway/sdk": "^1.56.2",
+    "@matterway/sdk": "^1.62.3",
     "@matterway/skill-scripts": "^11.102.6",
     "i18next": "^22.4.15",
     "pdf-lib": "^1.17.1",

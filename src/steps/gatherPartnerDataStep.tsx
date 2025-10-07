@@ -1,10 +1,5 @@
-import {
-  Context,
-  click,
-  getValue,
-  showProgress,
-  waitForSelector,
-} from '@matterway/sdk';
+import {Context, click, getValue, waitForSelector} from '@matterway/sdk';
+import {showUI} from '@matterway/sdk/lib/UIv2';
 import {t} from 'i18next';
 import {commentRegex, serviceRegex, servicesData} from 'shared/constants';
 import {SELECTORS} from 'shared/selectors';
@@ -13,7 +8,7 @@ import {PartnerData} from 'shared/types';
 export async function gatherPartnerDataStep(ctx: Context) {
   console.log('step: gatherPartnerDataStep');
 
-  await showProgress(ctx, t('loader.text'));
+  void showUI.progress(ctx, t('loader.text'), {overlay: true});
 
   const companyName = (
     await getValue(ctx, SELECTORS.partnerRowData('2'))

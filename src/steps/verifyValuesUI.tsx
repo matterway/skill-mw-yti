@@ -2,7 +2,15 @@ import {
   BackgroundReact as React,
   getContentComponentsProxy,
 } from '@matterway/background-react';
-import {Context, FieldSchema, ShowFormOptions, showForm} from '@matterway/sdk';
+import {Context} from '@matterway/sdk';
+import {
+  showUI,
+  bubble,
+  headerBar,
+  inputField,
+  group,
+  navigationBar,
+} from '@matterway/sdk/lib/UIv2';
 import {t} from 'i18next';
 import {PartnerData, ServiceFormResult} from 'shared/types';
 const {LinkCallout} = getContentComponentsProxy<typeof import('components')>();
@@ -14,59 +22,43 @@ export async function verifyValuesUIStep(
   console.log('step: verifyValuesUIStep start');
 
   const {services} = partnerData;
-  const totalDaysFields: FieldSchema[] = [];
-  const discountFields: FieldSchema[] = [];
+
   const formInitailValues: {[key: string]: string} = {};
 
-  services.forEach((service, index) => {
-    totalDaysFields.push({
-      type: 'text',
-      label: `Total Days ${service.description}`,
-      name: `totalDays${index}`,
-    });
-    formInitailValues[`totalDays${index}`] = service.totalDays;
-  });
-  services.forEach((service, index) => {
-    discountFields.push({
-      type: 'text',
-      label: `Discount ${service.description}`,
-      name: `discount${index}`,
-    });
-    formInitailValues[`discount${index}`] = service.discount;
-  });
+  const form: any = await showUI(
+    ctx,
+    bubble([
+      headerBar({
+        title: t('form.title', {companyName: partnerData.companyName}),
+        description: t('form.description'),
+      }),
+      group([
+        <LinkCallout text={t('form.infoText')} linkText={t('form.linkText')} />,
+        ...services.map((service, index) => {
+          return inputField({
+            label: `Total Days ${service.description}`,
+            name: `totalDays${index}`,
+            defaultValue: service.totalDays,
+          });
+        }),
+        ...services.map((service, index) => {
+          return inputField({
+            label: `Discount ${service.description}`,
+            name: `discount${index}`,
+            defaultValue: service.discount,
+          });
+        }),
+      ]),
+      navigationBar({buttons: [{value: 'ok', text: 'Submit'}]}),
+    ]),
+  );
+  const data = form.state as ServiceFormResult['data'];
 
-  const formOptions: ShowFormOptions = {
-    title: t('form.title', {companyName: partnerData.companyName}),
-    description: t('form.description'),
-    initialData: formInitailValues,
-    fields: [
-      {
-        type: 'group',
-        fields: [
-          {
-            type: 'statictext',
-            text: (
-              <LinkCallout
-                text={t('form.infoText')}
-                linkText={t('form.linkText')}
-              />
-            ),
-          },
-          ...totalDaysFields,
-          ...discountFields,
-        ],
-      },
-    ],
-    buttons: [{value: 'ok', text: 'Submit'}],
-  };
-
-  const data = (await showForm(ctx, formOptions)) as ServiceFormResult;
-
-  if (JSON.stringify(data.data) !== JSON.stringify(formInitailValues)) {
+  if (JSON.stringify(data) !== JSON.stringify(formInitailValues)) {
     // update partnerData with the new values
     partnerData.services = services.map((service, index) => {
-      const totalDays = data.data[`totalDays${index}`];
-      const discount = data.data[`discount${index}`];
+      const totalDays = data[`totalDays${index}`];
+      const discount = data[`discount${index}`];
       const lineTotal = (
         parseFloat(totalDays) *
         parseFloat(service.dailyRate.replace(',', '.')) *
