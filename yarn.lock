@@ -1234,10 +1234,10 @@
     micromatch "^4.0.5"
     ts-toolbelt "9.6.0"
 
-"@matterway/sdk@^1.56.2":
-  version "1.56.2"
-  resolved "https://registry.matterway.io/@matterway/sdk/-/sdk-1.56.2.tgz#2ed438f5d3f5495ff51a14521828bd610b7af57e"
-  integrity sha512-fpNMZUb2yE6NLIBqhMS7ouv7tXvXu6A5eGA3WGNWF8HsQb+Q1Oqu+Vpu8lJcd8nACoErn9KfnzwDhTMdQlbL+Q==
+"@matterway/sdk@^1.62.3":
+  version "1.62.3"
+  resolved "https://registry.matterway.io/@matterway/sdk/-/sdk-1.62.3.tgz#5a5d75944cee361296b529d308475ea013f90f5f"
+  integrity sha512-O8KZngdxYI0iUYeOPJ5xhjZg5eHMwa432CZJZpCWV/FTgclP7jAk8rLXi/9LmLu+XOTbuzFkU/UI2OZEs7blrA==
   dependencies:
     "@ai-sdk/amazon-bedrock" "^2.0.5"
     "@ai-sdk/anthropic" "^1.1.10"
