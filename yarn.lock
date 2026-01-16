@@ -1240,10 +1240,10 @@
     micromatch "^4.0.5"
     ts-toolbelt "9.6.0"
 
-"@matterway/sdk@^1.78.6":
-  version "1.78.6"
-  resolved "https://registry.matterway.io/@matterway/sdk/-/sdk-1.78.6.tgz#c46618ebcba29c4ca4c076d946a7a053693911e2"
-  integrity sha512-kv3HAjwsHHXwD2372qbgZ861zjLqQ94cktDLCY5Dscyg5lkq+KJboPwiBsdU+A9v3ocm7oE7mKRUyDoCbFf9qQ==
+"@matterway/sdk@^1.78.7-alpha.13":
+  version "1.78.7-alpha.13"
+  resolved "https://registry.matterway.io/@matterway/sdk/-/sdk-1.78.7-alpha.13.tgz#e8268c5a1898e93a8d76b0492b98dfab034d9ff8"
+  integrity sha512-q+HnxQ3ylXX1NDL60bJqmGSP3d6VVrr4RhAukS+8RgoqjVJwgoy47UkJT15ZDWQI7Bfv4NWmN7PmXypQiaGtNA==
   dependencies:
     "@ai-sdk/amazon-bedrock" "^2.0.5"
     "@ai-sdk/anthropic" "^1.1.10"
@@ -1279,6 +1279,7 @@
     exceljs "^4.4.0"
     express "^5.1.0"
     handsontable "^15.3.0"
+    helmet "^8.1.0"
     http-proxy-agent "^7.0.0"
     https-proxy-agent "^7.0.2"
     jszip "^3.10.1"
@@ -5466,6 +5467,11 @@ hastscript@^9.0.0:
     hast-util-parse-selector "^4.0.0"
     property-information "^7.0.0"
     space-separated-tokens "^2.0.0"
+
+helmet@^8.1.0:
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/helmet/-/helmet-8.1.0.tgz#f96d23fedc89e9476ecb5198181009c804b8b38c"
+  integrity sha512-jOiHyAZsmnr8LqoPGmCjYAaiuWwjAPLgY8ZX2XrmHawt99/u1y6RgrZMTeoPfpUbV96HOalYgz1qzkRbw54Pmg==
 
 hmac-drbg@^1.0.1:
   version "1.0.1"
