@@ -2,7 +2,6 @@
 .env
 .env.*
 *.local
-.npmrc
 
 # Build artifacts
 node_modules
@@ -30,4 +29,3 @@ Thumbs.db
 # Testing SDK
 .yalc
 yalc.lock
-
