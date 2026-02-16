@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@matterway/sdk": "^2.0.3",
+    "@matterway/sdk": "^3.0.0",
     "@matterway/skill-scripts": "^11.102.6",
     "i18next": "^22.4.15",
     "pdf-lib": "^1.17.1",
@@ -24,32 +24,31 @@
     "@matterway/eslint-plugin": "^1.3.3",
     "@matterway/types": "^10.241.2",
     "@types/chrome": "^0.0.263",
-    "@types/node": "^18.11.9",
+    "@types/node": "^24.0.0",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
     "@types/styled-components": "^5.1.15",
     "@types/webpack-env": "^1.18.4",
-    "@typescript-eslint/eslint-plugin": "^5.21.0",
-    "@typescript-eslint/eslint-plugin-tslint": "^5.21.0",
-    "@typescript-eslint/parser": "^5.21.0",
     "depcheck": "^1.4.3",
-    "eslint": "^8.12.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint": "^9.39.2",
     "prettier": "^2.6.2",
-    "tslint": "^6.1.3",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "@matterway/eslint-config": "5.0.1"
   },
-  "resolutions": {
-    "pbkdf2": "^3.1.3",
-    "jsondiffpatch": "^0.7.2",
-    "mdast-util-to-hast": "^13.1.2",
-    "body-parser": "^2.2.1",
-    "js-yaml": "^4.1.1",
-    "ai": "^5.0.52",
-    "undici": "^6.23.0"
+  "pnpm": {
+    "overrides": {
+      "glob": "^13.0.0",
+      "pbkdf2": "^3.1.3",
+      "jsondiffpatch": "^0.7.2",
+      "mdast-util-to-hast": "^13.1.2",
+      "body-parser": "^2.2.1",
+      "js-yaml": "^4.1.1",
+      "ai": "5.0.52",
+      "semver": "^7.7.1"
+    }
+  },
+  "engines": {
+    "node": "^24",
+    "pnpm": "^10"
   }
 }
