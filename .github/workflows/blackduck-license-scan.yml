@@ -1,0 +1,25 @@
+name: BlackDuck License Scan
+
+on:
+  workflow_call:
+    inputs:
+      release_channel:
+        required: true
+        type: string
+    secrets:
+      BLACKDUCK_API_TOKEN:
+        required: true
+
+jobs:
+  blackduck:
+    uses: matterway/tools-mw-gh-workflows/.github/workflows/blackduck-licenses-to-s3.yml@main
+    permissions:
+      id-token: write
+      contents: read
+    with:
+      project_name: skill-template
+      blackduck_project_name: IPR001421_mw-skill-template-v10
+      release_channel: ${{ inputs.release_channel }}
+      detect_excluded_detectors: 'GIT,LERNA,NPM'
+    secrets:
+      BLACKDUCK_API_TOKEN: ${{ secrets.BLACKDUCK_API_TOKEN }}
