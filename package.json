@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@matterway/sdk": "^3.0.2",
-    "@matterway/skill-scripts": "^11.103.17",
+    "@matterway/sdk": "^3.0.16",
     "i18next": "^22.5.1",
     "pdf-lib": "^1.17.1",
     "react": "^18.3.1",
@@ -18,7 +17,6 @@
     "build:dev": "skill-scripts build --mode=development --stats",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
     "format": "prettier . --write",
-    "list-unused-packages": "depcheck --skip-missing=true",
     "clean:node_modules": "pnpm dlx rimraf --glob \"{,**/}node_modules\"",
     "clean:cache": "pnpm dlx rimraf --glob \"{,**/}dist\" \"{,**/}build\" \"{,**/}.output\" \"{,**/}.turbo\" \"{,**/}.tsbuildinfo\" \"{,**/}.pnpm-store\"",
     "clean": "pnpm clean:node_modules && pnpm clean:cache"
@@ -32,17 +30,24 @@
     "@types/react-dom": "^18.3.7",
     "@types/styled-components": "^5.1.36",
     "@types/webpack-env": "^1.18.8",
-    "depcheck": "^1.4.7",
-    "eslint": "^9.39.2",
+    "eslint": "^10.0.2",
     "prettier": "^3.8.1",
     "typescript": "^5.9.3",
-    "@matterway/eslint-config": "5.0.1",
+    "@matterway/eslint-config": "^6.0.0",
     "@matterway/prettier-config": "^1.0.0",
     "css-loader": "^7.1.4",
     "node-loader": "^2.1.0",
     "style-loader": "^4.0.0"
   },
-  "pnpm": {},
+  "pnpm": {
+    "overrides": {
+      "glob": "^13.0.0",
+      "js-yaml": "^4.1.1",
+      "semver": "^7.7.1",
+      "minimatch@<3.1.3": ">=3.1.3",
+      "minimatch@>=9.0.0 <9.0.6": ">=9.0.6"
+    }
+  },
   "engines": {
     "node": "^24",
     "pnpm": "^10"
